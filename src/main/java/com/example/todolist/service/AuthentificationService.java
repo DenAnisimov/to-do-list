@@ -16,9 +16,7 @@ public class AuthentificationService {
         this.userRepository = userRepository;
     }
 
-    public boolean signIn(String username, String password) {
-        Optional<User> user = userRepository.findByUsernameAndPassword(username, password);
-
-        return user.isPresent();
+    public Optional<User> signIn(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
     }
 }
