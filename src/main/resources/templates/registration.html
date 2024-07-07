@@ -53,6 +53,8 @@
 
                 <div class="alert alert-danger" th:if="${passwordMatch}" th:text="${passwordMatch}"/>
 
+                <div class="alert alert-danger" th:if="${userInUse}" th:text="${userInUse}"/>
+
                 <div th:if="${#fields.hasErrors('firstName')}" >
                     <div class="alert alert-danger" >
                         First name length should be 2 - 26 characters
