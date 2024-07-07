@@ -27,6 +27,7 @@ li.ui-state-default:last-child{
 .todo-footer{
     background-color:#F4FCE8;
     margin:0 -20px -10px -20px;
+    height: 52px;
     padding: 10px 20px;
 }
 #done-items li{
