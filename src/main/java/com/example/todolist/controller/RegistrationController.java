@@ -18,7 +18,6 @@ public class RegistrationController {
         this.registrationService = registrationService;
     }
 
-
     @GetMapping("/registration")
     public String openRegistrationPage(Model model) {
         model.addAttribute("userForm", new User());
@@ -35,7 +34,18 @@ public class RegistrationController {
             return "registration";
         }
 
-        model.addAttribute("successMessage", "You successfully signed up!");
+        try {
+            User user = User.builder()
+                    .username(userForm.getUsername())
+                    .password(userForm.getPassword())
+                    .firstName(userForm.getFirstName())
+                    .lastName(userForm.getLastName())
+                    .build();
+            registrationService.signUp(user);
+            model.addAttribute("successMessage", "You successfully registered!");
+        } catch (IllegalArgumentException exception) {
+            model.addAttribute("userInUse", "User already exists!");
+        }
         return "registration";
     }
 }
