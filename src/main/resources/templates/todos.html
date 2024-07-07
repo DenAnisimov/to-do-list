@@ -38,9 +38,9 @@
                     <li>
                         <strong><span class="count-todos"></span></strong> Items Left
                         <div class="pull-right">
-                            <form th:action="@{/logout}" method="post">
-                                <input type="submit" value="Logout"/>
-                            </form>
+                            <a class="btn btn-danger" th:href="@{/}">
+                                Sing out
+                            </a>
                         </div>
                     </li>
                 </div>
